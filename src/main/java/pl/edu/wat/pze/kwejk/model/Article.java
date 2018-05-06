@@ -18,12 +18,10 @@ public class Article {
     @Id
     private Long id;
 
-    private String title;
-
     @Column(columnDefinition = "text")
     private String content;
-
-    @OneToOne
-    private Picture picture;
+//
+//    @OneToOne
+//    private Picture picture;
 
 }

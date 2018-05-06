@@ -1,5 +1,6 @@
 package pl.edu.wat.pze.kwejk.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,13 +12,10 @@ import pl.edu.wat.pze.kwejk.service.PictureService;
 @Controller
 public class GalleryController {
 
+    @Autowired
     private PictureService pictureService;
+    @Autowired
     private PaginationService paginationService;
-
-    public GalleryController(PictureService pictureService, PaginationService paginationService) {
-        this.pictureService = pictureService;
-        this.paginationService = paginationService;
-    }
 
     @GetMapping(value = {"/", "/{aPageNumber}"})
     public String getGallery(@PathVariable(required = false) Integer aPageNumber, Model aModel) {
